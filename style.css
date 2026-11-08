@@ -1,3 +1,16 @@
+
+:root {
+  --brown: #2b140c;
+  --orange: #e0561b;
+  --orange-dark: #b94212;
+  --green: #2f6b4b;
+  --cream: #fbf3e8;
+  --card: #ffffff;
+  --line: #ecdcc8;
+  --text: #2b140c;
+  --muted: #7a6355;
+}z
+
 :root {
   --brown: #2b140c;
   --orange: #e0561b;
@@ -11,7 +24,7 @@
 }
 
 * { box-sizing: border-box; }
-
+s
 body {
   margin: 0;
   font-family: "Figtree", system-ui, sans-serif;
