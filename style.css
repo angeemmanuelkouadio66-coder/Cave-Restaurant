@@ -1,0 +1,243 @@
+root {
+  --brown: #2b140c;
+  --orange: #e0561b;
+  --orange-dark: #b94212;
+  --green: #2f6b4b;
+  --cream: #fbf3e8;
+  --card: #ffffff;
+  --line: #ecdcc8;
+  --text: #2b140c;
+  --muted: #7a6355;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Figtree", system-ui, sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  padding-bottom: 90px;
+}
+
+button, input, select, textarea { font: inherit; }
+
+/* En-tête */
+.hero {
+  background: var(--brown);
+  color: #fff;
+  padding: 36px 20px 28px;
+  text-align: center;
+}
+.hero h1 {
+  margin: 0;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 9vw, 4.2rem);
+  letter-spacing: 1px;
+  line-height: 1;
+}
+.hero h1 span { color: var(--orange); }
+.tagline { margin: 10px 0 6px; font-style: italic; font-size: 1.05rem; }
+.info { margin: 0; font-size: .85rem; color: #d9c4b3; }
+
+/* Onglets */
+.tabs {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 10px 14px;
+  background: var(--cream);
+  border-bottom: 1px solid var(--line);
+  scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tabs button {
+  flex: none;
+  border: 1.5px solid var(--orange);
+  background: transparent;
+  color: var(--orange-dark);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.tabs button.active { background: var(--orange); color: #fff; }
+
+/* Menu */
+.menu { max-width: 900px; margin: 0 auto; padding: 8px 14px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+.menu h2 {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  margin: 18px 0 10px;
+  color: var(--orange-dark);
+}
+.menu h2.green { color: var(--green); }
+
+.item {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+}
+.item h3 { margin: 0 0 2px; font-size: 1.1rem; }
+.item .note { margin: 0 0 8px; font-size: .82rem; color: var(--muted); }
+
+.prep { display: flex; align-items: center; gap: 8px; margin: 8px 0; font-size: .9rem; }
+.prep select {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--cream);
+}
+
+.opt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 1px dashed var(--line);
+}
+.opt:first-of-type { border-top: 0; }
+.opt .label { font-weight: 600; }
+.opt .price { color: var(--muted); margin-left: 6px; font-weight: 400; }
+.add {
+  border: 0;
+  background: var(--orange);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.add:active { background: var(--orange-dark); }
+.add.added { background: var(--green); }
+
+/* Barre panier */
+.cart-bar {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 736px;
+  margin: 0 auto;
+  padding: 8px;
+  border-radius: 14px;
+  background: var(--brown);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .3);
+}
+.view-cart {
+  flex: 1;
+  text-align: left;
+  border: 0;
+  background: none;
+  color: #fff;
+  padding: 6px 8px;
+  cursor: pointer;
+}
+.view-cart span { display: block; font-weight: 700; }
+.view-cart small { color: #d9c4b3; font-size: .8rem; }
+.order-now {
+  border: 0;
+  background: var(--orange);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.order-now:active { background: var(--orange-dark); }
+
+/* Panneau commande */
+.overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, .5); z-index: 30; }
+.overlay[hidden], .drawer[hidden] { display: none; }
+.drawer {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 40;
+  width: min(440px, 100%);
+  overflow-y: auto;
+  background: var(--cream);
+  padding: 16px;
+}
+.drawer-head { display: flex; justify-content: space-between; align-items: center; }
+.drawer-head h2 { margin: 0; font-family: "Bebas Neue", sans-serif; font-weight: 400; font-size: 2rem; }
+.icon-btn { border: 0; background: none; font-size: 2rem; line-height: 1; cursor: pointer; color: var(--text); }
+
+.cart-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.cart-line .name { font-weight: 600; }
+.cart-line .detail { font-size: .8rem; color: var(--muted); }
+.qty { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+.qty button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--orange);
+  background: #fff;
+  color: var(--orange-dark);
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.line-price { font-weight: 700; white-space: nowrap; }
+.empty { color: var(--muted); padding: 24px 0; text-align: center; }
+
+.order-form { margin-top: 14px; }
+.order-form label { display: block; font-weight: 600; font-size: .9rem; margin-bottom: 12px; }
+.order-form label[hidden] { display: none; }
+.order-form input, .order-form select, .order-form textarea {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+.total-row { display: flex; justify-content: space-between; font-size: 1.2rem; padding: 10px 0; }
+.small { font-size: .8rem; color: var(--muted); margin: 0 0 12px; }
+.error { color: #b3261e; font-weight: 600; margin: 0 0 10px; }
+.error[hidden] { display: none; }
+
+.whatsapp-btn {
+  width: 100%;
+  padding: 14px;
+  border: 0;
+  border-radius: 10px;
+  background: #25d366;
+  color: #08331a;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.link-btn {
+  display: block;
+  margin: 12px auto 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
