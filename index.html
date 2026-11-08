@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cave Restaurant Paillote – Commander</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero">
+    <h1>Cave Restaurant <span>Paillote</span></h1>
+    <p class="tagline">Saveurs locales, plaisir authentique !</p>
+    <p class="info">Yopougon Niangon, à droite rue T70, 173 · Ouvert tous les jours de 8h à 22h</p>
+  </header>
+
+  <nav id="tabs" class="tabs" aria-label="Catégories"></nav>
+
+  <main id="menu" class="menu"></main>
+
+  <div class="cart-bar">
+    <button id="viewCart" class="view-cart" type="button">
+      <span id="cartCount">Aucun article</span>
+      <small>Voir / modifier · <span id="cartTotalBar">0 F</span></small>
+    </button>
+    <button id="orderNow" class="order-now" type="button">Commander</button>
+  </div>
+
+  <div id="overlay" class="overlay" hidden></div>
+  <aside id="drawer" class="drawer" aria-label="Ma commande" hidden>
+    <div class="drawer-head">
+      <h2>Ma commande</h2>
+      <button id="closeDrawer" class="icon-btn" aria-label="Fermer">&times;</button>
+    </div>
+
+    <div id="cartLines" class="cart-lines"></div>
+
+    <form id="orderForm" class="order-form" novalidate>
+      <label>Votre nom (facultatif)
+        <input type="text" id="name" placeholder="Ex : Kouadio">
+      </label>
+
+      <label>Mode de réception
+        <select id="mode">
+          <option value="">Non précisé</option>
+          <option>Sur place</option>
+          <option>À emporter</option>
+          <option>Livraison</option>
+        </select>
+      </label>
+
+      <label id="addressWrap" hidden>Adresse de livraison
+        <input type="text" id="address" placeholder="Quartier, rue, repère">
+      </label>
+
+      <label>Remarque (facultatif)
+        <textarea id="note" rows="2" placeholder="Ex : sans piment, bien cuit…"></textarea>
+      </label>
+
+      <div class="total-row">
+        <span>Total</span>
+        <strong id="cartTotal">0 F</strong>
+      </div>
+      <p class="small">Les frais de livraison éventuels seront confirmés par le restaurant sur WhatsApp.</p>
+      <p id="formError" class="error" hidden></p>
+
+      <button type="submit" class="whatsapp-btn">Commander sur WhatsApp</button>
+      <button type="button" id="clearCart" class="link-btn">Vider la commande</button>
+    </form>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
